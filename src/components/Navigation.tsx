@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../public/morphius-logo.png";
+import logo from "/morphius-logo.png";
 
 export default function Navigation() {
   return (
