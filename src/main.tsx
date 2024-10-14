@@ -7,6 +7,10 @@ import Root from "./routes/root";
 import About from "./routes/about";
 import Contact from "./routes/contact";
 import ErrorPage from "./error-page";
+import Example from "./components/Example";
+import ExampleDetails from "./components/ExampleDetails";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 const router = createBrowserRouter([
   {
@@ -26,12 +30,22 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path: "/example",
+        element: <Example />,
+      },
+      {
+        path: "/example/:id",
+        element: <ExampleDetails />,
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>
 );

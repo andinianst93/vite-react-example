@@ -20,6 +20,11 @@ export default function Navigation() {
                 About
               </Link>
             </li>
+            <li className="text-gray-950 font-medium">
+              <Link to={"/example"} className="hover:underline">
+                Example
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
