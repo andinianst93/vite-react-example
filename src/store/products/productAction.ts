@@ -12,6 +12,26 @@ interface Product {
   category: string;
 }
 
+interface SingleProduct {
+  id: string;
+  name: string;
+  price: number;
+  images: Imgs[];
+  company: string;
+  description: string;
+  category: string;
+  reviews: number;
+  stars: number;
+  stock: number;
+}
+
+type Imgs = {
+  url: string;
+  height: number;
+  width: number;
+  filename: string;
+};
+
 interface ProductError {
   message: string;
 }
@@ -30,7 +50,7 @@ export const fetchProducts = createAsyncThunk<
 });
 
 export const fetchProduct = createAsyncThunk<
-  Product,
+  SingleProduct,
   string,
   { rejectValue: ProductError }
 >("products/fetchProduct", async (id, { rejectWithValue }) => {

@@ -11,20 +11,40 @@ interface Product {
   category: string;
 }
 
+interface SingleProduct {
+  id: string;
+  name: string;
+  price: number;
+  images: Imgs[];
+  company: string;
+  description: string;
+  category: string;
+  reviews: number;
+  stars: number;
+  stock: number;
+}
+
+type Imgs = {
+  url: string;
+  height: number;
+  width: number;
+  filename: string;
+};
+
 interface ProductError {
   message: string;
 }
 
 interface ProductState {
   products: Product[];
-  product: Product | null; // Field to store single product
+  product: SingleProduct | null;
   loading: boolean;
   error: ProductError | null;
 }
 
 const initialState: ProductState = {
   products: [],
-  product: null, // Initialize product as null
+  product: null,
   loading: false,
   error: null,
 };
